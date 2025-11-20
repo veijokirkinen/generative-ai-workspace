@@ -1,0 +1,41 @@
+# Python virtualenv
+.venv/
+venv/
+env/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs (älä commitoi)
+logs/
+*.log
+ai_opiskelu_prompts.log
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Editor / OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Node / frontend (jos käytät)
+node_modules/
+
+# Build / dist
+dist/
+build/
+
+# Test artifacts
+.coverage
+coverage.xml
+.pytest_cache/
+.mypy_cache/
+
+# Docker
+docker-compose.override.yml
