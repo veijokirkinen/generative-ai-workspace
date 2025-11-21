@@ -1,0 +1,43 @@
+================================================================================
+                      DAY 12 - MONITORING & COST TRACKING
+================================================================================
+
+📅 PÄIVÄMÄÄRÄ: [Odottaa toteutusta]
+⏱️ KESTO: ~2 tuntia
+🎯 TAVOITE: Laske token cost arvio ja lisää basic logging
+
+================================================================================
+                                  TEHTÄVÄLISTA
+================================================================================
+
+⏸️ 1. TEHTÄVÄ 1
+   - Lisää token counting ja cost per request laskuri
+
+⏸️ 2. TEHTÄVÄ 2
+   - Tallenna latency metrics (simple timestamp diffs)
+
+⏸️ 3. TEHTÄVÄ 3
+   - Tee yksinkertainen cost_estimate.md (1k requests, monthly)
+
+
+================================================================================
+                              TAVOITTEET
+================================================================================
+
+🎯 TEKNISET TAVOITTEET:
+   • Laske token cost arvio ja lisää basic logging
+
+🧠 OPPIMIS TAVOITTEET:
+   • [Määritellään harjoituksen aikana]
+
+📊 DELIVERABLE:
+   • monitoring/ basic logs + cost_estimate.md
+   • Commit: "day12: monitoring + cost calc"
+
+================================================================================
+                            ODOTTAA TOTEUTUSTA...
+================================================================================
+
+[Tämä tiedosto päivitetään DAY 12 harjoitusten aikana]
+
+================================================================================

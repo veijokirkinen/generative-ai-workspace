@@ -1,0 +1,43 @@
+================================================================================
+                      DAY 10 - CONTAINER & DEPLOY POC
+================================================================================
+
+📅 PÄIVÄMÄÄRÄ: [Odottaa toteutusta]
+⏱️ KESTO: ~4 tuntia
+🎯 TAVOITE: Containerisoida RAG/chat app ja julkaista testipalvelimelle (Cloud Run/Vercel)
+
+================================================================================
+                                  TEHTÄVÄLISTA
+================================================================================
+
+⏸️ 1. TEHTÄVÄ 1
+   - Luo Dockerfile ja docker-compose (jos tarv)
+
+⏸️ 2. TEHTÄVÄ 2
+   - Testaa container paikallisesti: docker build -t rag-demo . && docker run -p 8000:8000 rag-demo
+
+⏸️ 3. TEHTÄVÄ 3
+   - Deploy: Vercel for front, Cloud Run for API tai Heroku
+
+
+================================================================================
+                              TAVOITTEET
+================================================================================
+
+🎯 TEKNISET TAVOITTEET:
+   • Containerisoida RAG/chat app ja julkaista testipalvelimelle (Cloud Run/Vercel)
+
+🧠 OPPIMIS TAVOITTEET:
+   • [Määritellään harjoituksen aikana]
+
+📊 DELIVERABLE:
+   • Dockerfile + deployment README + live endpoint
+   • Commit: "day10: dockerize + deploy steps"
+
+================================================================================
+                            ODOTTAA TOTEUTUSTA...
+================================================================================
+
+[Tämä tiedosto päivitetään DAY 10 harjoitusten aikana]
+
+================================================================================

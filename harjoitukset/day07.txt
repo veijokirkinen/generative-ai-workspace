@@ -1,0 +1,43 @@
+================================================================================
+                      DAY 07 - RAG POC
+================================================================================
+
+📅 PÄIVÄMÄÄRÄ: [Odottaa toteutusta]
+⏱️ KESTO: ~4 tuntia
+🎯 TAVOITE: Rakentaa minimal RAG proof-of-concept: query → retrieve → prompt with context → answer
+
+================================================================================
+                                  TEHTÄVÄLISTA
+================================================================================
+
+⏸️ 1. IMPLEMENT RETRIEVAL + REFORMAT PROMPT: INCLUDE TOP-K DOCS AS CONTEXT
+   - Implement retrieval + reformat prompt: include top-k docs as context
+
+⏸️ 2. TESTAA USEILLA KYSYMYKSILLÄ (FAQ TYYPPISET) JA MITTAA RELEVANTTIUS
+   - Testaa useilla kysymyksillä (FAQ tyyppiset) ja mittaa relevanttius
+
+⏸️ 3. LISÄÄ RE-RANKING (SIMPLE COSINE RE-RANK) JA TALLENNA QUERY/RESPONSE LOG
+   - Lisää re-ranking (simple cosine re-rank) ja tallenna query/response log
+
+
+================================================================================
+                              TAVOITTEET
+================================================================================
+
+🎯 TEKNISET TAVOITTEET:
+   • Rakentaa minimal RAG proof-of-concept: query → retrieve → prompt with context → answer
+
+🧠 OPPIMIS TAVOITTEET:
+   • [Määritellään harjoituksen aikana]
+
+📊 DELIVERABLE:
+   • rag_demo/ with code + example queries + results
+   • Commit: "day07: rag poc implemented"
+
+================================================================================
+                            ODOTTAA TOTEUTUSTA...
+================================================================================
+
+[Tämä tiedosto päivitetään DAY 7 harjoitusten aikana]
+
+================================================================================

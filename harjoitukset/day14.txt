@@ -1,0 +1,43 @@
+================================================================================
+                      DAY 14 - PORTFOLIO MATERIAALI JA OUTREACH
+================================================================================
+
+📅 PÄIVÄMÄÄRÄ: [Odottaa toteutusta]
+⏱️ KESTO: ~2 tuntia
+🎯 TAVOITE: Viimeistellä Week 1-2 deliverablet, kirjoittaa lyhyt case study ja valmistella outreach
+
+================================================================================
+                                  TEHTÄVÄLISTA
+================================================================================
+
+⏸️ 1. TEHTÄVÄ 1
+   - Kirjoita lyhyt case study (README/CASE_STUDY.md): ongelma, ratkaisu, tekninen arkkitehtuuri, tulokset
+
+⏸️ 2. TEHTÄVÄ 2
+   - Luo 2-3 demo-screenrecordia (Loom/OBS, 1-2 min)
+
+⏸️ 3. TEHTÄVÄ 3
+   - Valmistele outreach email template ja lista 5 potentiaalista kontaktoitavaa
+
+
+================================================================================
+                              TAVOITTEET
+================================================================================
+
+🎯 TEKNISET TAVOITTEET:
+   • Viimeistellä Week 1-2 deliverablet, kirjoittaa lyhyt case study ja valmistella outreach
+
+🧠 OPPIMIS TAVOITTEET:
+   • [Määritellään harjoituksen aikana]
+
+📊 DELIVERABLE:
+   • CASE_STUDY.md, demo-linkit ja outreach list
+   • Commit: "day14: portfolio + outreach prep"
+
+================================================================================
+                            ODOTTAA TOTEUTUSTA...
+================================================================================
+
+[Tämä tiedosto päivitetään DAY 14 harjoitusten aikana]
+
+================================================================================

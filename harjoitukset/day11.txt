@@ -1,0 +1,40 @@
+================================================================================
+                      DAY 11 - MULTIMODAL LISÄOMINAISUUS
+================================================================================
+
+📅 PÄIVÄMÄÄRÄ: [Odottaa toteutusta]
+⏱️ KESTO: ~2 tuntia
+🎯 TAVOITE: Integroida basic image generation flow (brand images)
+
+================================================================================
+                                  TEHTÄVÄLISTA
+================================================================================
+
+⏸️ 1. TEHTÄVÄ 1
+   - Kokeile DALL·E/Stable Diffusion API generate (single prompt)
+
+⏸️ 2. TEHTÄVÄ 2
+   - Lisää endpoint generate_image ja tallenna kuvat / static folderiin
+
+
+================================================================================
+                              TAVOITTEET
+================================================================================
+
+🎯 TEKNISET TAVOITTEET:
+   • Integroida basic image generation flow (brand images)
+
+🧠 OPPIMIS TAVOITTEET:
+   • [Määritellään harjoituksen aikana]
+
+📊 DELIVERABLE:
+   • images_demo/ with example outputs
+   • Commit: "day11: image gen POC"
+
+================================================================================
+                            ODOTTAA TOTEUTUSTA...
+================================================================================
+
+[Tämä tiedosto päivitetään DAY 11 harjoitusten aikana]
+
+================================================================================

@@ -1,0 +1,55 @@
+================================================================================
+                      DAY 04 - PIENI CHAT-DEMO
+================================================================================
+
+📅 PÄIVÄMÄÄRÄ: [Odottaa toteutusta]
+⏱️ KESTO: ~4 tuntia
+🎯 TAVOITE: Rakentaa lokalisti pyörivä chat demo (FastAPI + simple frontend tai Gradio)
+
+================================================================================
+                                  TEHTÄVÄLISTA
+================================================================================
+
+⏸️ 1. FASTAPI/GRADIO SETUP
+   - Perusta FastAPI + endpoint /chat
+   - Tai käytä Gradio single-file demo
+   - Simple UI: textarea input + send button
+
+⏸️ 2. API INTEGRAATIO
+   - Kytke OpenAI/HF API
+   - Ota env-muuttujat käyttöön (.env)
+   - Testaa yhteydet
+
+⏸️ 3. LIVE DEMO
+   - uvicorn app:app --reload
+   - Testaa käyttöliittymä
+   - Dokumentoi käyttöohjeet
+
+================================================================================
+                              TAVOITTEET
+================================================================================
+
+🎯 TEKNISET TAVOITTEET:
+   • FastAPI/Gradio chat demo
+   • Environment variables
+   • Live local demo
+   • README ohjeet
+
+🧠 OPPIMIS TAVOITTEET:
+   • Web API development
+   • UI framework basics
+   • Environment management
+   • Demo presentation
+
+📊 DELIVERABLE:
+   • Live local demo
+   • README ohjeilla
+   • Commit: "day04: chat demo initial implementation"
+
+================================================================================
+                            ODOTTAA TOTEUTUSTA...
+================================================================================
+
+[Tämä tiedosto päivitetään DAY 4 harjoitusten aikana]
+
+================================================================================

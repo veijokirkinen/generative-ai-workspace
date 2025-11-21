@@ -1,0 +1,43 @@
+================================================================================
+                      DAY 05 - DOKUMENTOINTI & VIIKON RETROSPEKTIIVI
+================================================================================
+
+📅 PÄIVÄMÄÄRÄ: [Odottaa toteutusta]
+⏱️ KESTO: ~4 tuntia
+🎯 TAVOITE: Siisti repo, kirjoita ensimmäisen viikon retrospektiivi ja parannussuunnitelma
+
+================================================================================
+                                  TEHTÄVÄLISTA
+================================================================================
+
+⏸️ 1. PÄIVITÄ README: MITEN AJAA PROJEKTIA, DEPENDENCIES, ENV-MUUTTUJAT
+   - Päivitä README: miten ajaa projektia, dependencies, env-muuttujat
+
+⏸️ 2. KIRJOITA WEEK 1 RETROSPECTIVE: MITÄ OPIT, MITÄ JÄI KESKEN, MITKÄ PROMPTIT TOIMIVAT PARHAITEN
+   - Kirjoita Week 1 retrospective: mitä opit, mitä jäi kesken, mitkä promptit toimivat parhaiten
+
+⏸️ 3. LISÄÄ TODO LIST VIIKOLLE 2
+   - Lisää TODO list viikolle 2
+
+
+================================================================================
+                              TAVOITTEET
+================================================================================
+
+🎯 TEKNISET TAVOITTEET:
+   • Siisti repo, kirjoita ensimmäisen viikon retrospektiivi ja parannussuunnitelma
+
+🧠 OPPIMIS TAVOITTEET:
+   • [Määritellään harjoituksen aikana]
+
+📊 DELIVERABLE:
+   • README päivitetty, retrospective.md tiedosto
+   • Commit: "day05: docs + week1 retrospective"
+
+================================================================================
+                            ODOTTAA TOTEUTUSTA...
+================================================================================
+
+[Tämä tiedosto päivitetään DAY 5 harjoitusten aikana]
+
+================================================================================
