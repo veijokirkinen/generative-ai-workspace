@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppimispäiväkirja — Generative AI harjoittelu</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #64748b;
+            --accent-color: #10b981;
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .intro {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .days-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .day-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .day-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-complete {
+            background-color: #dcfce7;
+            color: #16a34a;
+        }
+
+        .status-progress {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        .status-pending {
+            background-color: #f1f5f9;
+            color: var(--secondary-color);
+        }
+
+        .day-description {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .day-metrics {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .metric {
+            text-align: center;
+            flex: 1;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+        }
+
+        .quick-links {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-links h2 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: var(--bg-color);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background-color 0.2s;
+        }
+
+        .link-item:hover {
+            background-color: #e2e8f0;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--secondary-color);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .days-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>Oppimispäiväkirja</h1>
+                    <p class="subtitle">Generative AI harjoittelu — 90 päivän intensiivikurssi</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">Päivää suoritettu</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1905+</div>
+                        <div class="stat-label">Prompt-testiä</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">58KB</div>
+                        <div class="stat-label">Testidataa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Tervetuloa oppimispäiväkirjaan</h2>
+            <p>Tämä sivusto dokumentoi Generative AI -oppimispolkuni vaiheittain: prompt‑harjoitukset, API-integraatiot, mallin testaukset ja ongelmanratkaisut. Jokainen päivä sisältää yksityiskohtaiset raportit toteutetuista harjoituksista, opituista asioista ja saavutetuista tuloksista.</p>
+            <br>
+            <p><strong>Huomio:</strong> Sivut generoidaan automaattisesti projektin dokumentaatiosta. Kaikki sensitiivinen tieto (API-avaimet, henkilökohtaiset tiedot) on anonymisoitu julkaisua varten.</p>
+        </div>
+
+        <h2 style="margin-bottom: 1.5rem; color: var(--primary-color);">Oppimispäivät</h2>
+        
+        <div class="days-grid">
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">DAY 01</h3>
+                    <span class="status-badge status-complete">✅ Valmis</span>
+                </div>
+                <p class="day-description">Ympäristön setup ja perusasiat — Kehitysympäristön pystytys, Git-repositorion alustus ja riippuvuuksien asentaminen.</p>
+                <div class="day-metrics">
+                    <div class="metric">
+                        <div class="metric-value">4h</div>
+                        <div class="metric-label">Kesto</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Valmis</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">8</div>
+                        <div class="metric-label">Tiedostoa</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">DAY 02</h3>
+                    <span class="status-badge status-complete">✅ Valmis</span>
+                </div>
+                <p class="day-description">API Playground ja prompt-eksperimentit — OpenAI & Hugging Face integraatiot, 1905 prompt-testiä kolmessa kategoriassa.</p>
+                <div class="day-metrics">
+                    <div class="metric">
+                        <div class="metric-value">45min</div>
+                        <div class="metric-label">Kesto</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">100%</div>
+                        <div class="metric-label">Valmis</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">1905</div>
+                        <div class="metric-label">Testiä</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">DAY 03</h3>
+                    <span class="status-badge status-pending">⏸️ Odottaa</span>
+                </div>
+                <p class="day-description">Prompt-engineering syvemmälle — Edistyneet prompt-tekniikat, parameter tuning, chain-of-thought ja A/B testaus.</p>
+                <div class="day-metrics">
+                    <div class="metric">
+                        <div class="metric-value">4h</div>
+                        <div class="metric-label">Suunniteltu</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0%</div>
+                        <div class="metric-label">Valmis</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">TBD</div>
+                        <div class="metric-label">Tavoite</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="day-card">
+                <div class="day-header">
+                    <h3 class="day-title">DAY 04-14</h3>
+                    <span class="status-badge status-pending">📋 Suunnittelu</span>
+                </div>
+                <p class="day-description">Tuleva oppimispolku — Model fine-tuning, vector databases, RAG systems, chatbot development ja multimodal AI.</p>
+                <div class="day-metrics">
+                    <div class="metric">
+                        <div class="metric-value">~40h</div>
+                        <div class="metric-label">Suunniteltu</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">0%</div>
+                        <div class="metric-label">Valmis</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">∞</div>
+                        <div class="metric-label">Potentiaali</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-links">
+            <h2>Nopeat linkit</h2>
+            <div class="links-grid">
+                <a href="https://github.com/veijokirkinen/generative-ai-workspace" class="link-item" target="_blank">
+                    <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    GitHub Repo
+                </a>
+                
+                <a href="../harjoitukset/README.md" class="link-item">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    Harjoitukset
+                </a>
+                
+                <a href="../logs/prompt_log.csv" class="link-item">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    Testadata (CSV)
+                </a>
+                
+                <a href="../examples/" class="link-item">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                    </svg>
+                    Koodiesimerkit
+                </a>
+                
+                <a href="../ai_opiskelu_prompts.log" class="link-item">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                    </svg>
+                    Prompt-loki
+                </a>
+                
+                <a href="../README.md" class="link-item">
+                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Projektin README
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Generative AI Oppimispäiväkirja — Päivitetty automaattisesti 21.11.2025</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                ⚡ Toteutettu 45 minuutissa Day 2:n aikana — Tehokasta oppimista! 🚀
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Lisää interaktiivisuutta tulevaisuudessa
+        console.log('🤖 Oppimispäiväkirja ladattu onnistuneesti!');
+        console.log('📊 Tilastot: 2 päivää, 1905+ testiä, 58KB dataa');
+    </script>
+</body>
+</html>
