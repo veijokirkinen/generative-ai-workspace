@@ -1,0 +1,133 @@
+================================================================================
+                           DAY 01 - YMPÄRISTÖN SETUP JA PERUSASIAT
+================================================================================
+
+📅 PÄIVÄMÄÄRÄ: 20.11.2025
+⏱️ KESTO: ~3-4 tuntia  
+🎯 TAVOITE: Kehitysympäristön pystytys ja Git-repositorion alustus
+
+================================================================================
+                                  TEHTÄVÄLISTA
+================================================================================
+
+✅ 1. PROJEKTIN ALUSTUS
+   - Workspace-kansion luominen
+   - Git-repositorion initialisointi
+   - GitHub remote-repositorion setup
+
+✅ 2. PYTHON-YMPÄRISTÖ  
+   - Virtual environment (.venv) luominen
+   - Python 3.13.5 varmistaminen
+   - Pip päivitys
+
+✅ 3. RIIPPUVUUKSIEN ASENTAMINEN
+   - AI/ML kirjastot (transformers, torch, openai)
+   - Apukirjastot (requests, pandas, numpy)
+   - requirements.txt luominen
+
+✅ 4. DOKUMENTAATIO & LOGGING
+   - README.md luominen
+   - ai_opiskelu_prompts.log aloittaminen
+   - .gitignore konfigurointi
+
+================================================================================
+                               TOTEUTETUT KOMENNOT
+================================================================================
+
+# 1. PROJEKTIN PERUSTAMINEN
+mkdir "C:\Users\veijo\Documents\A LappiTech\Generative AI"
+cd "C:\Users\veijo\Documents\A LappiTech\Generative AI"
+git init
+git remote add origin https://github.com/veijokirkinen/generative-ai-workspace
+
+# 2. PYTHON VIRTUAL ENVIRONMENT
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python --version  # → Python 3.13.5
+python -m pip install --upgrade pip
+
+# 3. AI/ML RIIPPUVUUDET
+pip install torch torchvision torchaudio
+pip install transformers
+pip install openai
+pip install huggingface_hub
+pip install requests pandas numpy matplotlib seaborn
+pip install langchain
+pip install sentence-transformers
+pip install fastapi uvicorn
+pip install gradio
+pip install python-dotenv
+
+# 4. PROJEKTIN RAKENNE
+pip freeze > requirements.txt
+git add .
+git commit -m "Initial commit: Setup Python environment and dependencies"
+git push -u origin main
+
+================================================================================
+                                OPITUT ASIAT
+================================================================================
+
+🧠 TEKNINEN OSAAMINEN:
+   • Git-repositorion luominen ja GitHub-integraatio
+   • Python virtual environment käyttö Windows PowerShellissa
+   • AI/ML kirjastojen asentaminen ja hallinta
+   • Projektin rakenteen suunnittelu
+
+🔧 TYÖKALUT:
+   • Git version control
+   • Python pip package manager  
+   • PowerShell terminaalin käyttö
+   • Requirements.txt riippuvuuksien hallinta
+
+📚 AI/ML KIRJASTOT:
+   • Transformers (Hugging Face)
+   • PyTorch (deep learning framework)
+   • OpenAI API client
+   • LangChain (AI application framework)
+
+================================================================================
+                              ONGELMIA & RATKAISUJA
+================================================================================
+
+❌ ONGELMA: Git push alussa epäonnistui
+✅ RATKAISU: Luotiin GitHub repository ja lisättiin remote origin
+
+❌ ONGELMA: PowerShell execution policy
+✅ RATKAISU: Virtual environment aktivoitui onnistuneesti 
+
+❌ ONGELMA: Riippuvuuksien yhteensopivuus
+✅ RATKAISU: Käytettiin pip freeze > requirements.txt standardia
+
+================================================================================
+                               SEURAAVAN PÄIVÄN VALMISTELU
+================================================================================
+
+📋 DAY 2 ESIVALMISTELUT:
+   • Kehitysympäristö on valmis
+   • Kaikki tarvittavat kirjastot asennettu
+   • Git-repositorio toimii
+   • Logging-järjestelmä käytössä
+
+🎯 DAY 2 TAVOITTEET:
+   • API-playground luominen
+   • Ensimmäiset prompt-eksperimentit
+   • Hugging Face mallit testaus
+   • CSV-logging järjestelmä
+
+================================================================================
+                                ARVIOINTI
+================================================================================
+
+🏆 ONNISTUMINEN: 100% 
+📊 TAVOITTEET SAAVUTETTU: 4/4
+⭐ VAIKEUS: Helppo-Keskivaikea
+🕐 AIKA KÄYTETTY: ~3.5h
+
+💡 OPPIMISKOKEMUKSIA:
+   - Git-workflow on oleellinen AI-projekteissa
+   - Virtual environment estää kirjasto-konfliktit
+   - Huolellinen dokumentointi säästää aikaa myöhemmin
+   - Strukturoidut commit-viestit helpottavat seurantaa
+
+================================================================================

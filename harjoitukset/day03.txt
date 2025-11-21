@@ -1,0 +1,94 @@
+================================================================================
+                    DAY 03 - PROMPT-ENGINEERING SYVEMMÄLLE
+================================================================================
+
+📅 PÄIVÄMÄÄRÄ: [Odottaa toteutusta]
+⏱️ KESTO: ~4 tuntia
+🎯 TAVOITE: Edistyneet prompt-tekniikat ja parametrien optimointi
+
+================================================================================
+                                  TEHTÄVÄLISTA
+================================================================================
+
+⏸️ 1. TEMPERATURE & PARAMETRIT
+   - Temperature variationen testaus (0.1, 0.5, 1.0, 1.5)
+   - Top_p (nucleus sampling) eksperimentit
+   - Max_tokens optimointi eri tehtäville
+
+⏸️ 2. CHAIN-OF-THOUGHT PROMPTING
+   - Askelmittainen päättely
+   - "Let's think step by step" tekniikat
+   - Kompleksin problem solving
+
+⏸️ 3. SYSTEM VS USER ROLES
+   - System message optimointi
+   - User prompt rakenteen parannus
+   - Context window hallinta
+
+⏸️ 4. A/B TESTING FRAMEWORK
+   - 6 parameter-variantin vertailu
+   - Tilastollinen analyysi
+   - Tulosten visualisointi
+
+⏸️ 5. ADVANCED PATTERNS
+   - Meta-prompting tekniikat
+   - Few-shot chain-of-thought
+   - Prompt chaining
+
+================================================================================
+                               SUUNNITELLUT KOMENNOT
+================================================================================
+
+# [Odottaa toteutusta - DAY 3 alkuessa täytetään]
+
+================================================================================
+                                TAVOITTEET
+================================================================================
+
+🎯 TEKNISET TAVOITTEET:
+   • Parameter tuning mastery
+   • Advanced prompt patterns
+   • Performance measurement
+   • Statistical analysis
+
+🧠 OPPIMIS TAVOITTEET:
+   • Prompt optimization principles
+   • Quality vs cost trade-offs
+   • Model behavior understanding
+   • Evaluation methodologies
+
+📊 MITTARIT:
+   • Response quality scores
+   • Consistency measurements  
+   • Token efficiency
+   • Task completion rates
+
+================================================================================
+                              ESIVALMISTELUT
+================================================================================
+
+✅ INFRASTRUKTUURI VALMIS:
+   • examples/playground.py toimii
+   • CSV logging järjestelmä
+   • AI-mallit (GPT2, DistilGPT2) testattu
+   • 1905 baseline testiä datana
+
+✅ TYÖKALUT KÄYTÖSSÄ:
+   • Git version control
+   • Python development environment
+   • Hugging Face Transformers
+   • Data analysis capabilities
+
+📚 POHJATIETO:
+   • Instruction prompting hallinnassa
+   • Few-shot learning ymmärretty
+   • Role-based prompting käytetty
+   • Basic parameter effects tunnettu
+
+================================================================================
+                            ODOTTAA TOTEUTUSTA...
+================================================================================
+
+[Tämä tiedosto päivitetään DAY 3 harjoitusten aikana]
+
+================================================================================
