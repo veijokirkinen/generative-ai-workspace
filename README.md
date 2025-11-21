@@ -30,6 +30,17 @@ Pika‑asennus (Linux/macOS / WSL)
    pip install transformers sentence-transformers langchain openai huggingface_hub \
                pinecone-client supabase gradio fastapi uvicorn
 
+Pika‑asennus (Windows PowerShell)
+1. Kloonaa repo ja luo virtuaaliympäristö
+   git clone <repo-url>
+   cd <repo>
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+
+2. Asenna riippuvuudet
+   python -m pip install -U pip
+   pip install -r requirements.txt
+
 3. Lisää .env ‑tiedosto (kopioi .env.example)
    cp .env.example .env
    # täytä API‑avaimet: OPENAI_API_KEY, PINECONE_API_KEY, HUGGINGFACE_TOKEN, jne.

@@ -1,0 +1,196 @@
+# 14 päivän intensiivinen aikataulu — Generative AI (20 h / vko ensimmäiset 2 viikkoa)
+
+Yleisohje
+- Ensimmäiset kaksi viikkoa teet 20 h / viikko: arkipäivät (ma–pe) ~4 h / pv.  
+- Viikonloput ovat vapaita tai kevyitä (1–2 h) tarkastukseen / dokumentointiin tai palautteeseen.  
+- Pidä työnkulku GitHubissa: luo repo, tee feature‑branchit ja commitoi usein.  
+- Tallenna kaikki prompt‑versiot prompt‑logiin (Google Sheet tai CSV).
+
+Aikataulun rakenne
+- Päivän aikaväli jaetaan 2 x 2 h sessioon (tai 1 x 4 h blokki, kuten haluat).
+- Jokaiselle päivälle on "Tehtävä", "Tarkat askeleet / komennot", "Resurssit" ja "Deliverable".
+
+Branch & commit -käytännöt
+- Repo: my-llm-project  
+- Päähaara: main  
+- Käytä feature‑haaraa: feature/day-01-setup, feature/day-02-prompts, jne.  
+- Commit‑viestit: "day01: init repo and environment" / "day03: vector db POC" jne.
+
+Day 1 — Perustukset & ympäristö (4 h)
+- Tavoite: repo ja kehitysympäristö toimintaan, peruskirjastot asennettuna.
+- Tehtävät:
+  1. Luo GitHub‑repo (public or private).
+     - gh repo create my-llm-project --public
+  2. Paikallinen setup:
+     - python -m venv .venv
+     - source .venv/bin/activate
+     - pip install -U pip
+     - pip install transformers accelerate datasets torch sentence-transformers langchain openai huggingface_hub gradio fastapi uvicorn
+  3. Luo README skeleton ja .gitignore (.venv, .env).
+  4. Hugging Face login:
+     - huggingface-cli login
+- Deliverable:
+  - Repo with initial README, .gitignore, virtualenv, requirements in requirements.txt
+  - Commit: "day01: init repo and environment"
+
+Day 2 — API:t & Playground (4 h)
+- Tavoite: tutustua OpenAI/Hugging Face API:hin ja tehdä prompt‑playground.
+- Tehtävät:
+  1. Kirjoita pieni skripti testaukseen: examples/playground.py
+     - Esimerkki (pseudokoodi): kutsu OpenAI tai HF Inference API ja generoi lyhyt teksti.
+  2. Tee 30 prompt‑testiä eri tavoilla (few‑shot, instruction, role system).
+  3. Tallenna prompt‑log CSV:hin: date,prompt,model,params,result,notes.
+- Deliverable:
+  - examples/playground.py + prompt_log.csv
+  - Commit: "day02: playground scripts and prompt log init"
+
+Day 3 — Prompt‑engineering syvemmälle (4 h)
+- Tavoite: oppia prompt‑patterns ja versioida promptit.
+- Tehtävät:
+  1. Kokeile: system/user roles, temperature, top_p, max_tokens, stop sequences.
+  2. Testaa chain‑of‑thought ja few‑shot esimerkeillä.
+  3. Kirjoita 6 parametri‑varianttia (A/B test) yhdelle tehtävälle (esim. brand‑bio).
+- Resurssit: HF docs, OpenAI prompt best practices, blogit.
+- Deliverable:
+  - prompt_examples/ folder sisältäen 6 prompt‑varianttia ja testitulokset.
+  - Commit: "day03: prompt engineering variants"
+
+Day 4 — Pieni chat‑demo (4 h)
+- Tavoite: rakentaa lokalisti pyörivä chat demo (FastAPI + simple frontend tai Gradio).
+- Tehtävät:
+  1. Perusta FastAPI + endpoint /chat, tai käytä Gradio single‑file demo.
+  2. Kytke OpenAI/HF API, ota env‑muuttujat käyttöön (.env).
+  3. Simple UI: textarea input + send button.
+- Komennot:
+  - uvicorn app:app --reload
+- Deliverable:
+  - Live local demo + README ohjeilla.
+  - Commit: "day04: chat demo initial implementation"
+
+Day 5 — Dokumentointi & viikon retrospektiivi (4 h)
+- Tavoite: siisti repo, kirjoita ensimmäisen viikon retrospektiivi ja parannussuunnitelma.
+- Tehtävät:
+  1. Päivitä README: miten ajaa projektia, dependencies, env‑muuttujat.
+  2. Kirjoita Week 1 retrospective: mitä opit, mitä jäi kesken, mitkä promptit toimivat parhaiten.
+  3. Lisää TODO list viikolle 2.
+- Deliverable:
+  - README päivitetty, retrospective.md tiedosto.
+  - Commit: "day05: docs + week1 retrospective"
+
+-- Viikonloppu (vapaa / opt. 1–2 h)
+- Suositus: katso video‑tutorial tai luo pieni Loom‑video demoista. Tarkista prompt_log.
+
+Day 6 — Embeddings ja vector DB setup (4 h)
+- Tavoite: luo embeddings‑workflow ja kytke vector DB (Pinecone tai Supabase).
+- Tehtävät:
+  1. Valitse vector‑DB ja tee ilmainen trial (Pinecone tai Supabase).
+  2. Kirjoita skripti: scripts/ingest_docs.py
+     - Lue docs → chunk them → embed using sentence-transformers/OpenAI embeddings → upsert to vector db.
+  3. Indeksoi ~50 dokumenttia (voit käyttää omia brändimateriaaleja tai demo‑datasettiä).
+- Komennot:
+  - python scripts/ingest_docs.py --source data/docs --db pinecone
+- Deliverable:
+  - Ingest script + small indexed dataset + commit "day06: embeddings + vector db ingest"
+
+Day 7 — RAG POC (4 h)
+- Tavoite: rakentaa minimal RAG proof‑of‑concept: query → retrieve → prompt with context → answer.
+- Tehtävät:
+  1. Implement retrieval + reformat prompt: include top‑k docs as context.
+  2. Testaa useilla kysymyksillä (FAQ tyyppiset) ja mittaa relevanttius.
+  3. Lisää re‑ranking (simple cosine re‑rank) ja tallenna query/response log.
+- Deliverable:
+  - rag_demo/ with code + example queries + results.
+  - Commit: "day07: rag poc implemented"
+
+Day 8 — Chunking, metadata ja parempi retrieval (4 h)
+- Tavoite: paranna RAG: chunking, metadata, ja hybrid search.
+- Tehtävät:
+  1. Implementoi chunking (chunk size 500‑800 chars, overlap 100).
+  2. Lisää metadata (source, section, date) indeksointiin.
+  3. Testaa hybrid search: BM25 (if available) + embeddings.
+- Deliverable:
+  - Improved ingest script + tests + commit "day08: chunking + metadata"
+
+Day 9 — Fine‑tuning introduction (LoRA/PEFT) (4 h)
+- Tavoite: teoriat ja pieni käytännön kokeilu LoRA:lla pienen datan kanssa.
+- Tehtävät:
+  1. Lue LoRA/PEFT‑opas (Hugging Face blog).
+  2. Kokeile pienen datasetin LoRA‑fine‑tuning (esim. small llama‑like model or opt‑small on HF).
+  3. Tallenna ennen/jälkeen esimerkit ja analysoi muutokset.
+- Komennot (esimerkki HF Trainer/peft):
+  - follow Hugging Face PEFT tutorial commands (kirjallinen linkki README:ssa)
+- Deliverable:
+  - fine_tune/ repo with scripts + before_after_examples + commit "day09: lora experiment"
+
+Day 10 — Container & deploy POC (4 h)
+- Tavoite: containerisoida RAG/chat app ja julkaista testipalvelimelle (Cloud Run/Vercel).
+- Tehtävät:
+  1. Luo Dockerfile ja docker-compose (jos tarv).
+  2. Testaa container paikallisesti: docker build -t rag-demo . && docker run -p 8000:8000 rag-demo
+  3. Deploy: Vercel for front, Cloud Run for API tai Heroku.
+- Deliverable:
+  - Dockerfile + deployment README + live endpoint (tai deploy steps documented)
+  - Commit: "day10: dockerize + deploy steps"
+
+Day 11 — Multimodal lisäominaisuus (valinnainen kevyt) (2 h)
+- Tavoite: integroida basic image generation flow (brand images).
+- Tehtävät (2 h kevyesti):
+  1. Kokeile DALL·E/Stable Diffusion API generate (single prompt).
+  2. Lisää endpoint generate_image ja tallenna kuvat / static folderiin.
+- Deliverable:
+  - images_demo/ with example outputs + commit "day11: image gen POC"
+
+Day 12 — Monitoring & cost tracking (2 h)
+- Tavoite: laske token cost arvio ja lisää basic logging.
+- Tehtävät:
+  1. Lisää token counting ja cost per request laskuri.
+  2. Tallenna latency metrics (simple timestamp diffs).
+  3. Tee yksinkertainen cost_estimate.md (1k requests, monthly).
+- Deliverable:
+  - monitoring/ basic logs + cost_estimate.md + commit "day12: monitoring + cost calc"
+
+Day 13 — Security & prompt‑injection test (2 h)
+- Tavoite: perusturva ja adversarial‑testit.
+- Tehtävät:
+  1. Implementoi simple input sanitization (strip html, remove suspicious tokens).
+  2. Testaa prompt injection -tyyppisiä syötteitä ja dokumentoi vasteet.
+  3. Lisää human‑in‑the‑loop flag for critical responses.
+- Deliverable:
+  - security_checks.md + example attacks and mitigations + commit "day13: security checks"
+
+Day 14 — Viikon lopetus: portfolio materiaali ja outreach (2 h)
+- Tavoite: viimeistellä Week 1–2 deliverablet, kirjoittaa lyhyt case study ja valmistella outreach.
+- Tehtävät:
+  1. Kirjoita lyhyt case study (README/CASE_STUDY.md): ongelma, ratkaisu, tekninen arkkitehtuuri, tulokset.
+  2. Luo 2–3 demo‑screenrecordia (Loom/OBS, 1–2 min).
+  3. Valmistele outreach email template ja lista 5 potentiaalista kontaktoitavaa.
+- Deliverable:
+  - CASE_STUDY.md, demo‑linkit ja outreach list + commit "day14: portfolio + outreach prep"
+
+Viikon tarkistuspisteet (jokaisen viikon jälkeen)
+- Week 1 checklist:
+  - Repo initialised, playground, chat demo, prompt_log ja week1 retrospective valmis.
+- Week 2 checklist:
+  - Vector DB ja RAG POC, LoRA kokeilu, Dockerfile ja deploy steps, security checklist.
+- KPI:t:
+  - Live demo toiminnassa (local tai deployed), prompt_log väh. 50 riviä, embeddings indeksoitu ~50 doc, case study luonnos.
+
+Commit‑esimerkit
+- git checkout -b feature/day-03-prompts
+- git add .
+- git commit -m "day03: add prompt variants and tests"
+- git push origin feature/day-03-prompts
+
+Miten edetä jos jää jälkeen
+- Tee priorisointia: pakolliset deliverablit (RAG demo, prompt_log, README) > fine‑tuning ja multimodal.  
+- Jos aika loppuu, tee high‑impact snapshots: demo video + kirjallinen case study (parempi kuin keskeneräinen koodi).
+
+Muistiinpanot & vinkit
+- Kirjaa kaikki parameterit jokaiseen API‑kutsuun (model, temp, top_p, max_tokens).  
+- Säilytä API‑avaimet .env:ssa eikä repossa.  
+- Kommunikoi oppiminen: tee viikkopäivitys itsellesi (README:n alaosaan).
+
+---
+
+Onnea alkuun! Kopioi tämä markdown‑sisältö Google Docsiin ja aloita Day 1. Jos haluat, voin nyt muokata tätä päivätasolla (kertaan minuutti‑/tunti‑jaon per päivä) tai tuottaa valmiit komento‑skriptit (playground.py, ingest_docs.py, Dockerfile scaffold). Kirjoita mitä haluat seuraavaksi: "Tee päivätason tuntijaot" tai "Luo repo scaffold (Dockerfile, app.py, requirements.txt)".
+
